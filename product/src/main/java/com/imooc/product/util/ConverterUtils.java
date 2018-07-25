@@ -9,7 +9,7 @@ import org.springframework.beans.BeanUtils;
 /**
  * @author hellozjf
  */
-public class TypeUtils {
+public class ConverterUtils {
 
     public static ProductVO productCategory2ProductVO(ProductCategory productCategory) {
         ProductVO productVO = new ProductVO();

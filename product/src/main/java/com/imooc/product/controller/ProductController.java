@@ -5,7 +5,7 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.util.ResultVOUtils;
-import com.imooc.product.util.TypeUtils;
+import com.imooc.product.util.ConverterUtils;
 import com.imooc.product.vo.ProductInfoVO;
 import com.imooc.product.vo.ProductVO;
 import com.imooc.product.vo.ResultVO;
@@ -54,11 +54,11 @@ public class ProductController {
         // 4. 构造数据
         List<ProductVO> productVOList = new ArrayList<>();
         for (ProductCategory productCategory : productCategoryList) {
-            ProductVO productVO = TypeUtils.productCategory2ProductVO(productCategory);
+            ProductVO productVO = ConverterUtils.productCategory2ProductVO(productCategory);
             List<ProductInfoVO> productInfoVOList = new ArrayList<>();
             for (ProductInfo productInfo : productInfoList) {
                 if (productInfo.getCategoryType().equals(productCategory.getCategoryType())) {
-                    productInfoVOList.add(TypeUtils.productInfo2ProductInfoVO(productInfo));
+                    productInfoVOList.add(ConverterUtils.productInfo2ProductInfoVO(productInfo));
                 }
             }
             productVO.setProductInfoVOList(productInfoVOList);
