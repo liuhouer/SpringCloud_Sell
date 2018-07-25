@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: order
+  datasource:
+    url: jdbc:mysql://vultr.hellozjf.com:3306/SpringCloud_Sell?characterEncoding=utf-8&useSSL=false
+    username: root
+    password: Zjf@1234
+    driver-class-name: com.mysql.jdbc.Driver
+eureka:
+  client:
+    service-url:
+      defaultZone: http://aliyun.hellozjf.com:8761/eureka/
