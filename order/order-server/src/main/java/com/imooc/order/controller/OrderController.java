@@ -1,6 +1,5 @@
 package com.imooc.order.controller;
 
-import com.imooc.order.constant.OrderStatusEnum;
 import com.imooc.order.constant.ResultEnum;
 import com.imooc.order.dto.OrderDTO;
 import com.imooc.order.exception.OrderException;
