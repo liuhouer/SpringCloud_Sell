@@ -17,8 +17,6 @@
         <dependency>
             <groupId>com.imooc</groupId>
             <artifactId>product-common</artifactId>
-            <version>1.0.0</version>
-            <scope>compile</scope>
         </dependency>
 
         <dependency>
