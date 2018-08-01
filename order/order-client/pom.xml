@@ -11,5 +11,11 @@
 
     <artifactId>order-client</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>order-common</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

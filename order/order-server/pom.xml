@@ -16,7 +16,10 @@
         <dependency>
             <groupId>com.imooc</groupId>
             <artifactId>product-client</artifactId>
-            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.imooc</groupId>
+            <artifactId>order-common</artifactId>
         </dependency>
 
         <dependency>
