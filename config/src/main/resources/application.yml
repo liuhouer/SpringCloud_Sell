@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/hellozjf/config-repo.git
+          username: hellozjf
+          password: Zjf@1234
+          basedir: C:\Users\hellozjf\Documents\code\study\SpringCloud_Sell\config\basedir
+eureka:
+  client:
+    service-url:
+      defaultZone: http://aliyun.hellozjf.com:8761/eureka/
+  instance:
+    prefer-ip-address: true
+server:
+  port: 8888
