@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>product-server</artifactId>
-
+    <name>hellozjf/product-server</name>
 
     <dependencies>
 
