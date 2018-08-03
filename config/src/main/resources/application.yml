@@ -8,7 +8,11 @@ spring:
           uri: https://github.com/hellozjf/config-repo.git
           username: hellozjf
           password: Zjf@1234
-          basedir: C:\Users\hellozjf\Documents\code\study\SpringCloud_Sell\config\basedir
+  rabbitmq:
+    host: aliyun.hellozjf.com
+    port: 5672
+    username: hellozjf
+    password: Zjf@1234
 eureka:
   client:
     service-url:
@@ -17,3 +21,8 @@ eureka:
     prefer-ip-address: true
 server:
   port: 8888
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
