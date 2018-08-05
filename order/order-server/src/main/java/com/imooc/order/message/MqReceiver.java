@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
 public class MqReceiver {
 
 //    @RabbitListener(queuesToDeclare = @Queue("myQueue"))
-    @RabbitListener(bindings = @QueueBinding(
-            value = @Queue("myQueue"),
-            exchange = @Exchange("myExchange")
-    ))
+//    @RabbitListener(bindings = @QueueBinding(
+//            value = @Queue("myQueue"),
+//            exchange = @Exchange("myExchange")
+//    ))
     public void process(String message) {
         log.info("MqReceiver: {}", message);
     }
@@ -27,11 +27,11 @@ public class MqReceiver {
      * 水果供应商 接收消息
      * @param message
      */
-    @RabbitListener(bindings = @QueueBinding(
-            exchange = @Exchange("myOrder"),
-            key = "fruit",
-            value = @Queue("fruitOrder")
-    ))
+//    @RabbitListener(bindings = @QueueBinding(
+//            exchange = @Exchange("myOrder"),
+//            key = "fruit",
+//            value = @Queue("fruitOrder")
+//    ))
     public void processFruit(String message) {
         log.info("fruit MqReceiver: {}", message);
     }
@@ -40,11 +40,11 @@ public class MqReceiver {
      * 数码供应商 接收消息
      * @param message
      */
-    @RabbitListener(bindings = @QueueBinding(
-            exchange = @Exchange("myOrder"),
-            key = "computer",
-            value = @Queue("computerOrder")
-    ))
+//    @RabbitListener(bindings = @QueueBinding(
+//            exchange = @Exchange("myOrder"),
+//            key = "computer",
+//            value = @Queue("computerOrder")
+//    ))
     public void processComputer(String message) {
         log.info("computer MqReceiver: {}", message);
     }
