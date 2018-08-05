@@ -86,6 +86,7 @@ public class ProductController {
 
     @PostMapping("/decreaseStock")
     public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList) {
+        log.debug("decreaseStockInputList = {}", decreaseStockInputList);
         List<CartDTO> cartDTOList = ConverterUtils.decreaseStockInputList2CartDTOList(decreaseStockInputList);
         productService.decreaseStock(cartDTOList);
     }
