@@ -5,12 +5,14 @@ import com.imooc.order.dataobject.OrderDetail;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
 /**
  * @author hellozjf
  */
+@Component
 public class OrderDetailRepositoryTest extends OrderApplicationTests {
 
     @Autowired
