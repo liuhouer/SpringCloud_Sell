@@ -8,6 +8,8 @@ eureka:
       defaultZone: http://aliyun.hellozjf.com:8761/eureka/
   server:
     enable-self-preservation: false
+  instance:
+    prefer-ip-address: true
 spring:
   application:
     name: eureka
