@@ -7,11 +7,6 @@ spring:
         service-id: CONFIG
         enabled: true
       profile: dev
-  rabbitmq:
-    host: aliyun.hellozjf.com
-    port: 5672
-    username: hellozjf
-    password: Zjf@1234
 eureka:
   client:
     service-url:
