@@ -44,6 +44,7 @@ public class ProductController {
      * 4. 构造数据
      */
     @GetMapping("/list")
+//    @CrossOrigin(allowCredentials = "true")     // allowCredentials=true，允许cookie跨域
     public ResultVO<ProductVO> list(HttpServletRequest request) {
 
         if (request.getCookies() != null) {
