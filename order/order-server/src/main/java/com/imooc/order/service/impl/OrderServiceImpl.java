@@ -108,7 +108,7 @@ public class OrderServiceImpl implements OrderService {
             throw new OrderException(ResultEnum.ORDER_NOT_EXIST);
         }
         OrderMaster orderMaster = orderMasterOptional.get();
-        if (!orderMaster.getOrderStatus().equals(OrderStatusEnum.NEW)) {
+        if (!orderMaster.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
             throw new OrderException(ResultEnum.ORDER_STATUS_ERROR);
         }
 
