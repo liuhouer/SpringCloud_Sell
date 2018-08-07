@@ -6,7 +6,7 @@ spring:
       discovery:
         service-id: CONFIG
         enabled: true
-      profile: prod
+      profile: dev
 eureka:
   client:
     service-url:

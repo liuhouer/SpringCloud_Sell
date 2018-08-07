@@ -1,5 +1,8 @@
 package com.imooc.order.service.impl;
 
+import com.imooc.order.constant.ResultEnum;
+import com.imooc.order.exception.OrderException;
+import com.imooc.order.util.ConverterUtils;
 import com.imooc.product.client.ProductClient;
 import com.imooc.order.constant.OrderStatusEnum;
 import com.imooc.order.constant.PayStatusEnum;
@@ -15,9 +18,12 @@ import com.imooc.product.common.ProductInfoOutput;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
 
+import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +42,7 @@ public class OrderServiceImpl implements OrderService {
     private ProductClient productClient;
 
     @Override
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
 
         String orderId = KeyUtils.genUniqueKey();
@@ -86,6 +93,37 @@ public class OrderServiceImpl implements OrderService {
         orderMaster.setOrderAmount(orderAmount);
         orderMasterRepository.save(orderMaster);
 
+        return orderDTO;
+    }
+
+    @Override
+    @Transactional
+    public OrderDTO finish(String orderId) {
+
+        // 1. 查询订单
+        Optional<OrderMaster> orderMasterOptional = orderMasterRepository.findById(orderId);
+
+        // 2. 判断订单状态
+        if (!orderMasterOptional.isPresent()) {
+            throw new OrderException(ResultEnum.ORDER_NOT_EXIST);
+        }
+        OrderMaster orderMaster = orderMasterOptional.get();
+        if (!orderMaster.getOrderStatus().equals(OrderStatusEnum.NEW)) {
+            throw new OrderException(ResultEnum.ORDER_STATUS_ERROR);
+        }
+
+        // 3. 修改订单状态为完结
+        orderMaster.setOrderStatus(OrderStatusEnum.FINISHED.getCode());
+        orderMasterRepository.save(orderMaster);
+
+        // 4. 查询订单详情
+        List<OrderDetail> orderDetailList = orderDetailRepository.findByOrderId(orderId);
+        if (CollectionUtils.isEmpty(orderDetailList)) {
+            throw new OrderException(ResultEnum.ORDER_DETAIL_NOT_EXIST);
+        }
+
+        // 5. 构造OrderDTO
+        OrderDTO orderDTO = ConverterUtils.orderMasterAndOrderDetails2OrderDTO(orderMaster, orderDetailList);
         return orderDTO;
     }
 }

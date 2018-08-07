@@ -26,6 +26,13 @@ public class ConverterUtils {
         return orderMaster;
     }
 
+    public static OrderDTO orderMasterAndOrderDetails2OrderDTO(OrderMaster orderMaster, List<OrderDetail> orderDetailList) {
+        OrderDTO orderDTO = new OrderDTO();
+        BeanUtils.copyProperties(orderMaster, orderDTO);
+        orderDTO.setOrderDetailList(orderDetailList);
+        return orderDTO;
+    }
+
     public static OrderDTO OrderForm2OrderDTO(OrderForm orderForm) {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setBuyerName(orderForm.getName());
