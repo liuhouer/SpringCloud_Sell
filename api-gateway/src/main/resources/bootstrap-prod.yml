@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    config:
+      discovery:
+        service-id: CONFIG
+        enabled: true
+      profile: prod
+eureka:
+  client:
+    service-url:
+      defaultZone: http://aliyun.hellozjf.com:8761/eureka/
