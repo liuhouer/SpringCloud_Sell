@@ -22,3 +22,12 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /log
+/order/order-client/target
+/order/order-common/target
+/order/order-server/target
+/product/product-client/target
+/product/product-common/target
+/product/product-server/target
+/user/user-client/target
+/user/user-common/target
+/user/user-server/target
