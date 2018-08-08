@@ -18,4 +18,12 @@ hystrix:
       execution:
         isolation:
           thread:
+            timeoutInMilliseconds: 1000
+    getProductInfoList:
+      execution:
+        isolation:
+          thread:
             timeoutInMilliseconds: 3000
+feign:
+  hystrix:
+    enabled: true

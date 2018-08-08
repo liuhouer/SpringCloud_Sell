@@ -11,11 +11,3 @@ eureka:
   client:
     service-url:
       defaultZone: http://aliyun.hellozjf.com:8761/eureka/
-
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000

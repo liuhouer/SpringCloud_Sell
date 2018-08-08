@@ -28,6 +28,7 @@ public class HystrixController {
 //            @HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10000"),   // 从断路到恢复的时间
 //            @HystrixProperty(name = "circuitBreaker.errorThresholdPercentage", value = "60")        // 失败率达到多少发生断路
 //    })
+    @HystrixCommand
     @GetMapping("/getProductInfoList")
     public String getProductInfoList(@RequestParam("number") Integer number) {
         if (number % 2 == 0) {

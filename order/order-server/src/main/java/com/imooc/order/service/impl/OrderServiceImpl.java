@@ -15,6 +15,7 @@ import com.imooc.order.service.OrderService;
 import com.imooc.order.util.KeyUtils;
 import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.common.ProductInfoOutput;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 /**
  * @author hellozjf
  */
+@Slf4j
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -52,6 +54,7 @@ public class OrderServiceImpl implements OrderService {
                 .map(e -> e.getProductId())
                 .collect(Collectors.toList());
         List<ProductInfoOutput> productInfoList = productClient.listForOrder(productIdList);
+        log.debug("productInfoList = {}", productInfoList);
 
         // 3. 计算总价
         BigDecimal orderAmount = new BigDecimal(0);
