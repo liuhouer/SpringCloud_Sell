@@ -1,6 +1,0 @@
-eureka:
-  instance:
-    hostname: aliyun.hellozjf.com
-    prefer-ip-address: false
-logging:
-  file: /log/eureka.log

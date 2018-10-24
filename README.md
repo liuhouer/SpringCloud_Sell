@@ -1,2 +1,2 @@
-# SpringCloud_Sell
-SpringCloud版点餐系统
+# spring-cloud-sell
+Spring Cloud demo
